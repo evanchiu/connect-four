@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 
 public class BoardPanel extends JPanel
 {
-    private final int WIDTH = 1000;
-    private final int HEIGHT = 857;
+    private final int WIDTH = 800;
+    private final int HEIGHT = 700;
     private Board b;
     private boolean redturn;
     private boolean twoplayer;
@@ -27,7 +27,7 @@ public class BoardPanel extends JPanel
         addMouseListener(ear);
         addMouseMotionListener(ear);
         setBackground(Color.yellow);
-        setPreferredSize(new Dimension(1000, 857));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
         this.twoplayer = twoP;
         if (!twoP)
             this.redturn = true;
@@ -36,7 +36,7 @@ public class BoardPanel extends JPanel
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-        this.b.display(g, 1000, 857);
+        this.b.display(g, WIDTH, HEIGHT);
     }
     private class BoardListener implements MouseListener, MouseMotionListener {
         private BoardListener() {
@@ -49,7 +49,7 @@ public class BoardPanel extends JPanel
                     new Piece(BoardPanel.this.b, BoardPanel.this.temppiece.getPosition(), true);
                 }
                 Point click = event.getPoint();
-                Position pos = new Position(6 * click.y / 857, 7 * click.x / 1000);
+                Position pos = new Position(6 * click.y / HEIGHT, 7 * click.x / WIDTH);
                 if (BoardPanel.this.twoplayer)
                 {
                     Color turn;
@@ -111,7 +111,7 @@ public class BoardPanel extends JPanel
                     new Piece(BoardPanel.this.b, BoardPanel.this.temppiece.getPosition(), true);
                 }
                 Point click = event.getPoint();
-                Position pos = new Position(6 * click.y / 857, 7 * click.x / 1000);
+                Position pos = new Position(6 * click.y / HEIGHT, 7 * click.x / WIDTH);
                 Color turn;
                 if (BoardPanel.this.redturn)
                     turn = Color.red;
