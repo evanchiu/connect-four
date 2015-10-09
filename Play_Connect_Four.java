@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 
 public class Play_Connect_Four
 {
-    public static void play()
+    public static void main(String[] args)
     {
         int twop = 1;
 
